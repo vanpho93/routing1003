@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Request } from '../services/request.service';
 
 @Component({
     template: `
@@ -6,4 +7,13 @@ import { Component } from '@angular/core';
     `
 })
 
-export class FriendComponent {}
+export class FriendComponent implements OnInit {
+    constructor(private request: Request) {}
+
+    ngOnInit() {
+        this.request.get('/user')
+        .then(response => {
+            console.log(response.users);
+        });
+    }
+}

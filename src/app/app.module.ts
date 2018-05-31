@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FriendComponent } from './components/friend.component';
@@ -9,6 +10,7 @@ import { ProfileComponent } from './components/profile.component';
 import { SignUpComponent } from './components/sign-up.component';
 import { SignInComponent } from './components/sign-in.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+import { Request } from './services/request.service';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,9 +33,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [Request],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
