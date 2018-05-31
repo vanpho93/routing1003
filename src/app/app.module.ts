@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home.component';
 import { ProfileComponent } from './components/profile.component';
 import { SignUpComponent } from './components/sign-up.component';
 import { SignInComponent } from './components/sign-in.component';
+import { FriendItemComponent } from './components/friend-item.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 import { Request } from './services/request.service';
 
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'friend', component: FriendComponent },
+  { path: 'friend/:_id', component: FriendItemComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -29,6 +31,7 @@ const appRoutes: Routes = [
     SignInComponent,
     SignUpComponent,
     ProfileComponent,
+    FriendItemComponent,
     PageNotFoundComponent
   ],
   imports: [
