@@ -5,11 +5,11 @@
         <a class="navbar-brand" href="#">Khoa Pham Page</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a routerLink="/">Home</a></li>
-        <li><a routerLink="/signin">Sign In</a></li>
-        <li><a routerLink="/signup">Sign Up</a></li>
-        <li><a routerLink="/profile">Profile</a></li>
-        <li><a routerLink="/friend">Friend</a></li>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/signin" routerLinkActive="active">Sign In</a></li>
+        <li><a routerLink="/signup" routerLinkActive="active">Sign Up</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        <li><a routerLink="/friend" routerLinkActive="active">Friend</a></li>
       </ul>
     </div>
   </nav>
