@@ -12,7 +12,7 @@ export class Request {
         return response.then(res => res.json())
         .catch(error => error.json())
         .then(resJson => {
-            if (!resJson.success) Promise.reject(resJson.code);
+            if (!resJson.success) return Promise.reject(resJson);
             return resJson;
         });
     }

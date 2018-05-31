@@ -10,7 +10,7 @@ import { UserInfo } from '../types';
                 <img class="card-img-top" [src]="user.avatar" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{ user.name }}</h5>
-                  <a href="#" class="btn btn-primary">Go to profile</a>
+                  <a routerLink="/friend/{{user._id}}" class="btn btn-primary">Go to profile</a>
                 </div>
             </div>
         </div>
