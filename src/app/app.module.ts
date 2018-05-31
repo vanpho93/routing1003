@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home.component';
 import { ProfileComponent } from './components/profile.component';
 import { SignUpComponent } from './components/sign-up.component';
 import { SignInComponent } from './components/sign-in.component';
+import { PageNotFoundComponent } from './components/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'friend', component: FriendComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     HomeComponent,
     SignInComponent,
     SignUpComponent,
-    ProfileComponent
+    ProfileComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
