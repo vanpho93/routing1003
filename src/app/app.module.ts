@@ -12,6 +12,7 @@ import { SignUpComponent } from './components/sign-up.component';
 import { SignInComponent } from './components/sign-in.component';
 import { FriendItemComponent } from './components/friend-item.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
+import { NavBarComponent } from './components/nav-bar.component';
 import { Request } from './services/request.service';
 import { UserService } from './services/user.service';
 
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     SignUpComponent,
     ProfileComponent,
     FriendItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
