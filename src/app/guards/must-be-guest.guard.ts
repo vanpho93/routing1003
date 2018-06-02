@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 export class MustBeGuestGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return true;
+    const token = localStorage.getItem('token');
+    return !token;
   }
 }

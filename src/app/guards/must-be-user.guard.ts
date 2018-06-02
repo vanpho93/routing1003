@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 export class MustBeUserGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return false;
+    const token = localStorage.getItem('token');
+    return !!token;
   }
 }

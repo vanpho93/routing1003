@@ -30,7 +30,7 @@ export class FriendComponent implements OnInit {
     constructor(private request: Request) {}
 
     ngOnInit() {
-        this.request.get('/user')
-        .then(response => this.users = response.users);
+        // this.request.get('/user')
+        // .then(response => this.users = response.users);
     }
 }
