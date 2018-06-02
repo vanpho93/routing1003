@@ -13,11 +13,14 @@ import { FriendItemComponent } from './components/friend-item.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 import { Request } from './services/request.service';
 
+import { MustBeGuestGuard } from './guards/must-be-guest.guard';
+import { MustBeUserGuard } from './guards/must-be-user.guard';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [MustBeUserGuard] },
   { path: 'friend', component: FriendComponent },
   { path: 'friend/:_id', component: FriendItemComponent },
   { path: '**', component: PageNotFoundComponent },
@@ -39,7 +42,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [Request],
+  providers: [Request, MustBeGuestGuard, MustBeUserGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
