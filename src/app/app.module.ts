@@ -13,6 +13,7 @@ import { SignInComponent } from './components/sign-in.component';
 import { FriendItemComponent } from './components/friend-item.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 import { Request } from './services/request.service';
+import { UserService } from './services/user.service';
 
 import { MustBeGuestGuard } from './guards/must-be-guest.guard';
 import { MustBeUserGuard } from './guards/must-be-user.guard';
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [Request, MustBeGuestGuard, MustBeUserGuard],
+  providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
