@@ -10,6 +10,7 @@ import { StoryService } from '../services/story.service';
             <textarea [(ngModel)]="txtContent" class="form-control" placeholder="Bạn đang nghĩ gì?" cols="30" rows="5"></textarea>
             <br>
             <button class="btn btn-success" (click)="createStory();">Create story</button>
+            <app-story *ngFor="let story of stories" [story]="story"></app-story>
             <pre>{{ stories | json }}</pre>
         </div>
         <div *ngIf="!user">

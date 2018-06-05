@@ -14,6 +14,8 @@ import { SignInComponent } from './components/sign-in.component';
 import { FriendItemComponent } from './components/friend-item.component';
 import { PageNotFoundComponent } from './components/page-not-found.component';
 import { NavBarComponent } from './components/nav-bar.component';
+import { StoryComponent } from './components/story.component';
+
 import { Request } from './services/request.service';
 import { UserService } from './services/user.service';
 import { StoryService } from './services/story.service';
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     ProfileComponent,
     FriendItemComponent,
     PageNotFoundComponent,
-    NavBarComponent
+    NavBarComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule,

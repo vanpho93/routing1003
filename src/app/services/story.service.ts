@@ -21,6 +21,12 @@ export class StoryService {
 
     createStory(content: string) {
         this.request.post('/story', { content })
+        .then(res => this.store.dispatch({ type: 'CREATE_STORY', story: res.story }))
+        .catch(error => console.log(error));
+    }
+
+    removeStory(_id: string) {
+        this.request.delete('/story/' + _id)
         .then(res => console.log(res))
         .catch(error => console.log(error));
     }
