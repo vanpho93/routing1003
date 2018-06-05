@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { FriendComponent } from './components/friend.component';
@@ -18,6 +19,8 @@ import { UserService } from './services/user.service';
 
 import { MustBeGuestGuard } from './guards/must-be-guest.guard';
 import { MustBeUserGuard } from './guards/must-be-user.guard';
+
+import { userReducer } from './reducers';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,6 +49,7 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ user: userReducer }),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService],
