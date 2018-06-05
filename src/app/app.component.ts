@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState, UserInfo } from './types';
 import { UserService } from './services/user.service';
+import { StoryService } from './services/story.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,15 @@ import { UserService } from './services/user.service';
 
 export class AppComponent implements OnInit {
   user: UserInfo;
-  constructor(private store: Store<AppState>, private userService: UserService) {}
+  constructor(
+    private store: Store<AppState>,
+    private userService: UserService,
+    private storyService: StoryService
+  ) {}
 
   ngOnInit() {
     this.store.select('user').subscribe(u => this.user = u);
     this.userService.checkToken();
+    this.storyService.getAllStory();
   }
 }

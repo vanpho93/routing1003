@@ -16,11 +16,12 @@ import { PageNotFoundComponent } from './components/page-not-found.component';
 import { NavBarComponent } from './components/nav-bar.component';
 import { Request } from './services/request.service';
 import { UserService } from './services/user.service';
+import { StoryService } from './services/story.service';
 
 import { MustBeGuestGuard } from './guards/must-be-guest.guard';
 import { MustBeUserGuard } from './guards/must-be-user.guard';
 
-import { userReducer } from './reducers';
+import { userReducer, storiesReducer } from './reducers';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,10 +50,10 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ user: userReducer }),
+    StoreModule.forRoot({ user: userReducer, stories: storiesReducer }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService],
+  providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService, StoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
