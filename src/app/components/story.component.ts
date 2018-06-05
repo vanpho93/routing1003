@@ -9,7 +9,8 @@ import { StoryService } from '../services/story.service';
     <div class="story">
       <p>{{ story.content }}</p>
       <hr>
-      <a>{{ story.fans.length }} likes</a>
+      <img *ngIf="isLiked" src="https://tr.facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/thumb-drawn.svg" />
+      <a (click)="toggleLike();">{{ story.fans.length }} likes</a>
       <br>
       <button (click)="removeStory();" *ngIf="story.author === idUser">Remove</button>
     </div>
@@ -21,6 +22,8 @@ import { StoryService } from '../services/story.service';
             background-color: #E5E4E5;
             border-radius: 5px;
         }
+
+        img { width: 20px; height: 20px }
     `]
 })
 
@@ -33,5 +36,16 @@ export class StoryComponent {
 
     removeStory() {
         this.storyService.removeStory(this.story._id);
+    }
+
+    toggleLike() {
+        if (this.isLiked) {
+            return this.storyService.dislikeStory(this.story._id, this.idUser);
+        }
+        this.storyService.likeStory(this.story._id, this.idUser);
+    }
+
+    get isLiked(): boolean {
+        return this.story.fans.includes(this.idUser);
     }
 }

@@ -27,7 +27,19 @@ export class StoryService {
 
     removeStory(_id: string) {
         this.request.delete('/story/' + _id)
-        .then(res => console.log(res))
+        .then(res => this.store.dispatch({ type: 'REMOVE_STORY', _id }))
         .catch(error => console.log(error));
+    }
+
+    likeStory(_id: string, idUser: string) {
+        this.request.post('/story/like/' + _id, {})
+        .then(res => this.store.dispatch({ type: 'LIKE_STORY', _id, idUser }))
+        .catch();
+    }
+
+    dislikeStory(_id: string, idUser: string) {
+        this.request.post('/story/dislike/' + _id, {})
+        .then(res => this.store.dispatch({ type: 'DISLIKE_STORY', _id, idUser }))
+        .catch();
     }
 }

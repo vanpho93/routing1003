@@ -7,6 +7,7 @@ export interface UserInfo {
 export interface Story {
     _id: string;
     content: string;
+    fans: string[];
 }
 
 export interface AppState {
