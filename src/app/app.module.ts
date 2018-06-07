@@ -20,11 +20,12 @@ import { Request } from './services/request.service';
 import { UserService } from './services/user.service';
 import { StoryService } from './services/story.service';
 import { CommentService } from './services/comment.service';
+import { PeopleService } from './services/people.service';
 
 import { MustBeGuestGuard } from './guards/must-be-guest.guard';
 import { MustBeUserGuard } from './guards/must-be-user.guard';
 
-import { userReducer, storiesReducer } from './reducers';
+import { userReducer, storiesReducer, peopleReducer } from './reducers';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -54,10 +55,18 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ user: userReducer, stories: storiesReducer }),
+    StoreModule.forRoot({ user: userReducer, stories: storiesReducer, people: peopleReducer }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService, StoryService, CommentService],
+  providers: [
+    Request,
+    MustBeGuestGuard,
+    MustBeUserGuard,
+    UserService,
+    StoryService,
+    CommentService,
+    PeopleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

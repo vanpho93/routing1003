@@ -1,7 +1,7 @@
 export interface UserInfo {
     _id: string;
     name: string;
-    email: string;
+    email?: string;
 }
 
 export interface Comment {
@@ -21,4 +21,12 @@ export interface Story {
 export interface AppState {
     user: UserInfo;
     stories: Story[];
+    people: People;
+}
+
+export interface People {
+    friends: UserInfo[];
+    sentRequests: UserInfo[];
+    incommingRequests: UserInfo[];
+    otherUsers: UserInfo[];
 }
