@@ -19,6 +19,7 @@ import { StoryComponent } from './components/story.component';
 import { Request } from './services/request.service';
 import { UserService } from './services/user.service';
 import { StoryService } from './services/story.service';
+import { CommentService } from './services/comment.service';
 
 import { MustBeGuestGuard } from './guards/must-be-guest.guard';
 import { MustBeUserGuard } from './guards/must-be-user.guard';
@@ -56,7 +57,7 @@ const appRoutes: Routes = [
     StoreModule.forRoot({ user: userReducer, stories: storiesReducer }),
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService, StoryService],
+  providers: [Request, MustBeGuestGuard, MustBeUserGuard, UserService, StoryService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
